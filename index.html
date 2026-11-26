@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LORDROID — Haythem Souissi</title>
+  <meta name="description" content="LORDROID is the independent mobile-app developer name of Haythem Souissi. Toilet apps, Dashcam VTC, and other apps on Google Play.">
+  <link rel="canonical" href="https://souissihaythem.github.io/">
+  <meta name="theme-color" content="#f4f1ea">
+  <meta property="og:title" content="LORDROID — Haythem Souissi">
+  <meta property="og:description" content="Independent mobile apps by Haythem Souissi. Apps on Google Play, and privacy policies for the Toilet apps and Dashcam VTC.">
+  <meta property="og:url" content="https://souissihaythem.github.io/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231c1915'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' fill='%23f4f1ea'%3EL%3C/text%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "LORDROID",
+    "url": "https://souissihaythem.github.io/",
+    "founder": {
+      "@type": "Person",
+      "name": "Haythem Souissi"
+    },
+    "sameAs": "https://play.google.com/store/apps/developer?id=LORDROID"
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --ink: #1c1915;
+      --muted: #4e4942;
+      --line: #ddd6c8;
+      --card: #fffcf7;
+      --accent: #0d5c45;
+      --accent-dark: #084536;
+      --shadow: 0 1px 0 rgba(28, 25, 21, 0.04);
+      color-scheme: light;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(1200px 480px at 50% -180px, #fff 0%, transparent 70%),
+        var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+    }
+
+    .skip {
+      position: absolute;
+      left: 0.75rem;
+      top: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--ink);
+      color: var(--bg);
+      transform: translateY(-150%);
+      z-index: 2;
+    }
+
+    .skip:focus { transform: none; }
+
+    .wrap {
+      width: min(42rem, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 1.5rem 0 3rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark {
+      margin: 0;
+      font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+    }
+
+    .langs {
+      display: flex;
+      margin: 0;
+      padding: 0.2rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 252, 247, 0.7);
+    }
+
+    .langs legend {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .langs label {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.25rem;
+      padding: 0.2rem 0.85rem;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .langs input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .langs label:has(input:focus-visible) {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    body:has(#lang-en:checked) label:has(#lang-en),
+    body:has(#lang-fr:checked) label:has(#lang-fr) {
+      background: var(--ink);
+      color: #f4f1ea;
+    }
+
+    body:has(#lang-en:checked) .lang-fr,
+    body:has(#lang-fr:checked) .lang-en {
+      display: none;
+    }
+
+    .eyebrow {
+      margin: 2rem 0 0.4rem;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+      font-size: clamp(2.4rem, 6vw, 3.4rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .byline {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+
+    .lede {
+      margin: 1.25rem 0 0;
+      max-width: 38rem;
+      font-size: 1.08rem;
+    }
+
+    h2 {
+      margin: 2.25rem 0 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .card {
+      margin: 0 0 0.75rem;
+      padding: 1.15rem 1.2rem 1.2rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card p { margin: 0; color: var(--ink); }
+
+    .card a, .store a, footer a {
+      color: var(--accent-dark);
+    }
+
+    .more {
+      display: inline-block;
+      margin-top: 0.85rem;
+      font-weight: 600;
+      text-underline-offset: 0.18em;
+    }
+
+    .store {
+      margin-top: 0.4rem;
+      padding: 1.2rem 1.2rem 1.25rem;
+      border-radius: 14px;
+      background: var(--ink);
+      color: #f4f1ea;
+    }
+
+    .store p { margin: 0; }
+
+    .store a.button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.75rem;
+      margin-top: 0.95rem;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      background: #f4f1ea;
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .store a.button:hover { background: #fff; }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .store a.button:focus-visible {
+      outline-color: #f4f1ea;
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer p { margin: 0; }
+
+    @media (max-width: 380px) {
+      .mark { letter-spacing: 0.08em; }
+      .langs label { padding-inline: 0.65rem; }
+      .store a.button {
+        width: 100%;
+        padding-inline: 0.65rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip lang-en" href="#content">Skip to content</a>
+  <a class="skip lang-fr" href="#content">Aller au contenu</a>
+  <div class="wrap">
+    <header>
+      <p class="mark">LORDROID</p>
+      <fieldset class="langs">
+        <legend>Language / Langue</legend>
+        <label>English
+          <input type="radio" name="lang" id="lang-en" checked>
+        </label>
+        <label>Français
+          <input type="radio" name="lang" id="lang-fr">
+        </label>
+      </fieldset>
+    </header>
+
+    <main id="content">
+      <article class="lang-en" lang="en">
+        <p class="eyebrow">Independent mobile developer</p>
+        <h1>LORDROID</h1>
+        <p class="byline">Haythem Souissi</p>
+        <p class="lede">Haythem Souissi publishes mobile apps under the name LORDROID. The apps are independent. They are not official services of a city, a transport operator, or any other organization.</p>
+
+        <h2>Apps</h2>
+        <section class="card">
+          <h3>Toilet apps</h3>
+          <p>Maps of public toilets, one app per city, on Android and iOS. Each app shows nearby toilets, the distance to the closest one, and ratings, comments, and status reports from people who use that app.</p>
+          <a class="more" href="https://souissihaythem.github.io/toilet-privacy/">Toilet apps privacy policy</a>
+        </section>
+        <section class="card">
+          <h3>Dashcam VTC and Dashcam Auto</h3>
+          <p>Android dashcam apps for drivers. Recordings stay on the phone, in the app’s private storage. Both apps are covered by the same privacy policy.</p>
+          <a class="more" href="https://souissihaythem.github.io/dashcamvtc-privacy/">Dashcam VTC privacy policy</a>
+        </section>
+
+        <h2>Google Play</h2>
+        <section class="store">
+          <p>Every app published as LORDROID is listed on the Google Play developer page, including the toilet apps, Dashcam VTC, Dashcam Auto, and Taxi/VTC Connect.</p>
+          <a class="button" href="https://play.google.com/store/apps/developer?id=LORDROID">LORDROID on Google Play</a>
+        </section>
+
+        <footer>
+          <p>LORDROID (Haythem Souissi). This website does not use cookies and does not load third-party trackers.</p>
+        </footer>
+      </article>
+
+      <article class="lang-fr" lang="fr">
+        <p class="eyebrow">Développeur d’applications mobiles indépendant</p>
+        <h1>LORDROID</h1>
+        <p class="byline">Haythem Souissi</p>
+        <p class="lede">Haythem Souissi publie des applications mobiles sous le nom LORDROID. Ces applications sont indépendantes. Elles ne constituent pas le service officiel d’une ville, d’un opérateur de transport ou d’une autre organisation.</p>
+
+        <h2>Applications</h2>
+        <section class="card">
+          <h3>Applications Toilet</h3>
+          <p>Cartes des toilettes publiques, une application par ville, sur Android et iOS. Chaque application indique les toilettes à proximité, la distance jusqu’à la plus proche, ainsi que les notes, commentaires et signalements des personnes qui l’utilisent.</p>
+          <a class="more" href="https://souissihaythem.github.io/toilet-privacy/">Politique de confidentialité des applications Toilet</a>
+        </section>
+        <section class="card">
+          <h3>Dashcam VTC et Dashcam Auto</h3>
+          <p>Applications dashcam Android pour les chauffeurs. Les enregistrements restent sur le téléphone, dans l’espace privé de l’application. Les deux applications partagent la même politique de confidentialité.</p>
+          <a class="more" href="https://souissihaythem.github.io/dashcamvtc-privacy/">Politique de confidentialité de Dashcam VTC</a>
+        </section>
+
+        <h2>Google Play</h2>
+        <section class="store">
+          <p>Toutes les applications publiées sous le nom LORDROID figurent sur la page développeur Google Play, y compris les applications Toilet, Dashcam VTC, Dashcam Auto et Taxi/VTC Connect.</p>
+          <a class="button" href="https://play.google.com/store/apps/developer?id=LORDROID">LORDROID sur Google Play</a>
+        </section>
+
+        <footer>
+          <p>LORDROID (Haythem Souissi). Ce site n’utilise pas de cookies et ne charge aucun traceur tiers.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
